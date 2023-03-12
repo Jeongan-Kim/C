@@ -13,5 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Level 1">
+      <UniqueIdentifier>{ca2c30d0-7fc5-47b8-b57c-43acdf87b388}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

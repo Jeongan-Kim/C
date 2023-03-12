@@ -66,7 +66,7 @@ void solution(int a[], int size_a, int b[])
 	{
 		if (a[i] < 0)
 			printf("(%d) ", a[i]);
-		else 
+		else
 			printf("%d ", a[i]);
 
 		printf("* ");
@@ -82,7 +82,7 @@ void solution(int a[], int size_a, int b[])
 		inner_product += a[i] * b[i];
 	}
 	printf("= %d\n", inner_product);
-	
+
 }
 
 void scanf(int a[], int size_a)
