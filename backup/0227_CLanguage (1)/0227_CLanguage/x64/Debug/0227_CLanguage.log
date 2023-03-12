@@ -1,0 +1,17 @@
+﻿  13_Array.cpp
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(43,12): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'unsigned __int64'입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(43,12): message : 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(43,12): message : 서식 문자열에서 '%Id'을(를) 사용하는 것이 좋습니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(43,12): message : 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(22,12): warning C4101: 'darr' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(17,19): warning C4101: 'floor202' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(17,9): warning C4101: 'floor201' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(16,39): warning C4101: 'floor104' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(21,11): warning C4101: 'farr' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(16,29): warning C4101: 'floor103' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(20,9): warning C4101: 'floor' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(16,9): warning C4101: 'floor101' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(17,39): warning C4101: 'floor204' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(17,29): warning C4101: 'floor203' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\0227_CLanguage\13_Array.cpp(16,19): warning C4101: 'floor102' :참조되지 않은 지역 변수입니다.
+  0227_CLanguage.vcxproj -> C:\Users\82102\Desktop\C언어\##\0227_CLanguage (1)\x64\Debug\0227_CLanguage.exe

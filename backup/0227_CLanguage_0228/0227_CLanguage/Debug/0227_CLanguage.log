@@ -1,0 +1,6 @@
+﻿  01_02_0228.cpp
+C:\Users\82102\Desktop\C언어\0227_CLanguage_0228\0227_CLanguage\01_02_0228.cpp(102,13): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\82102\Desktop\C언어\0227_CLanguage_0228\0227_CLanguage\01_02_0228.cpp(114,12): warning C4309: '초기화 중': 상수 값이 잘립니다.
+C:\Users\82102\Desktop\C언어\0227_CLanguage_0228\0227_CLanguage\01_02_0228.cpp(111,16): warning C4101: 'c3' :참조되지 않은 지역 변수입니다.
+C:\Users\82102\Desktop\C언어\0227_CLanguage_0228\0227_CLanguage\01_02_0228.cpp(112,15): warning C4101: 'i2' :참조되지 않은 지역 변수입니다.
+  0227_CLanguage.vcxproj -> C:\Users\82102\Desktop\C언어\0227_CLanguage_0228\Debug\0227_CLanguage.exe
