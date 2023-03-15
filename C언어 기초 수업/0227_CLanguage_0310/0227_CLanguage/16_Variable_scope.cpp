@@ -6,9 +6,12 @@
 */
 
 //전역 변수
-int global; // 프로그램 전체가 유효 범위, 안정성을 높히기 위해서는 사용하지 않는 게 좋음
+int global; // 프로그램 전체가 유효 범위, 안정성을 높히기 위해서는 사용하지 않는 게 좋음, 초기화 하지 않으면 자동으로 0으로 됨
 
 char var1 = 'G';
+
+void LocalCount();
+void StaticCount();
 
 int main()
 {
@@ -23,6 +26,26 @@ int main()
 
 	printf("main에서의 var1 : %c\n", var1); //값이 바뀐 게 아니라 지역 밖에서는 지역 안의 정의가 가려짐.
 
-
+	for (int i = 0; i < 5; i++)
+	{
+		LocalCount();
+		StaticCount();
+	}
 	return 0;
+}
+
+void LocalCount()
+{
+	int count = 1;
+
+	printf("local count : %d\n", count);
+	count++;
+}
+
+void StaticCount()
+{
+	static int count = 1; //static : 정적 변수, 프로그램 종료 시에 소멸됨. 맨 처음 선언해 줘야 하는 전역 변수와 다르게 선언한 순간 생겨남. 전역 변수보다 안정적.
+	//static은 최초 선언 시에만 초기화가 됨.
+	printf("static count : %d\n", count);
+	count++;
 }
