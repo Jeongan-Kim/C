@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0317_과제_영화관 좌석 예매하기.cpp">
+    <ClCompile Include="0322_과제_이중포인터를 이용한 최대값 최소값 함수.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

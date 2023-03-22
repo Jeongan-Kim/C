@@ -1,2 +1,5 @@
-﻿  소스.c
+﻿  22_Pointer3.c
+C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(98,1): warning C4047: '초기화 중': 'int'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(111,14): warning C4047: '=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(113,14): warning C4047: '=': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
   0227_CLanguage.vcxproj -> C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\Debug\0227_CLanguage.exe
