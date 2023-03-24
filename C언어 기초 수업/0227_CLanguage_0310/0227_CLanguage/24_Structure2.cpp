@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <math.h> //다양한 수학 공식이 들어있는 라이브러리 
+#include <Windows.h> //콘솔용, 게임 용어 등등이 들어가 있음
+#include <stdlib.h>
+#include <time.h>
 
 #define NUM 2
 
@@ -27,7 +30,7 @@ typedef struct _Monster
 
 Monster m1;
 
-typedef struct //익명 구조체 : 이름이 없으면 .
+typedef struct //익명 구조체 : 이름이 없음
 {
 	char name[256];
 	int hp;
@@ -47,6 +50,7 @@ typedef struct
 }Point;
 
 void input_human();
+void rpg();
 
 int main()
 {
@@ -75,7 +79,9 @@ int main()
 		//printf("두 점 사이의 거리는  : %d\n", distance);
 	}
 
-	input_human();
+	//input_human();
+
+	rpg();
 
 	return 0;
 }
@@ -109,3 +115,123 @@ void input_human()
 			hu[i].name, hu[i].gender, hu[i].age, hu[i].height);
 	}
 }
+
+void rpg()
+{
+	Player p;
+
+	Monster m[2] = {
+		{"리본돼지", 100, 100, 50},
+		{"슬라임", 60, 150, 70}
+	};
+
+	printf("이름 : ");
+	scanf_s("%s", &p.name, sizeof(p.name));
+
+	printf("hp : ");
+	scanf_s("%d", &p.hp);
+
+	printf("공격력 : ");
+	scanf_s("%d", &p.atk);
+
+	p.exp = 0;
+	p.gold = 0;
+
+	printf("게임 시작!!!\n\n");
+
+	srand((unsigned int)time(NULL));
+
+	while (1)
+	{
+		if (p.hp <= 0)
+		{
+			printf("게임 오버\n");
+			return; //exit(0);도 가능
+		}
+		printf("\n한 층 내려갑니다.\n");
+		Sleep(1000); //잠시 멈추는 함수. 1000 == 1초
+
+		int event = rand() % 3;
+
+		switch (event)
+		{
+		case 0:
+			printf("보물 상자 발견!\n");
+
+			p.gold += 100;
+
+			printf("현재 소지금 : %d\n", p.gold);
+
+			printf("\n한 층 내려갑니다.\n");
+			Sleep(1000);
+
+			system("cls"); //cmd창 청소하는 명령어
+			break;
+
+		case 1:
+			printf("힐팩 발견!\n");
+
+			p.hp += 100;
+
+			printf("현재 체력 : %d\n", p.gold);
+
+			printf("\n한 층 내려갑니다.\n");
+			Sleep(1000);
+
+			system("cls");
+			break;
+
+		case 2:
+			int m_num = rand() % 2;
+			int m_hp = m[m_num].hp;
+
+			printf("%s를 만났습니다!!!\n", m[m_num].name);
+
+			while (1)
+			{
+				printf("플레이어의 공격\n");
+				printf("%d의 데미지\n", p.atk);
+
+				Sleep(1000);
+				printf("%s의 체력 %d => %d\n", m[m_num].name, m_hp, m_hp - p.atk);
+
+				m_hp -= p.atk;
+
+				if (m_hp <= 0)
+				{
+					p.exp += m[m_num].exp;
+					printf("경험치 : %d\n", p.exp);
+					
+					printf("\n한 층 내려갑니다.\n");
+					Sleep(1000);
+
+					system("cls");
+					break;
+				}
+
+				printf("%s의 공격\n", m[m_num].name);
+				printf("%d의 피해!\n", m[m_num].atk);
+
+				Sleep(1000);
+				printf("%s의 체력 %d => %d\n", p.name, p.hp, p.hp - m[m_num].atk);
+
+				p.hp -= m[m_num].atk;
+
+
+				if (p.hp <= 0)
+				{
+					printf("\n패배\n");
+					Sleep(1000);
+
+					system("cls");
+					break;
+				}
+			}
+			break;
+		}
+	}
+}
+
+
+//<과제>
+//맵(배열 또는 for) 만들고 적을 만나면 전투하고 다 잡으면 이기는 게임 만들기.
