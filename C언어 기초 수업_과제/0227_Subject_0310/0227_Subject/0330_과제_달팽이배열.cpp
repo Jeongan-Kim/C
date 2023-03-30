@@ -19,15 +19,103 @@ int main()
 	++방향마다 배열 인덱스로 봤을때 얼마나 늘어나는지 생각해서 계산?
 	*/
 
-	for (int i = 0; i <= 25; i++)
+	int count = 0; // 방향 바뀌는 횟수
+	int xcount = 0; //세로 횟수
+	int ycount = 0; //가로 횟수
+	int x = 0, y = 0;
+	int num = 1; //달팽이 숫자
+
+	while (num < 26)
 	{
-		if (i < 5)
-			snail[0][i] = i + 1;
-		else if (i > 5 && i <= 9)
-			snail[i % 5][4] = i;
-		else if (i >= 10 && i <= 13)
-			snail[4][13 - i] = i;
-		else if (i / 5 >= 2 && i / 5);
+		switch (count) // 가로 : y가 커지거나 작아짐
+		{
+		case 0:
+			if (ycount % 2 == 0) // 가로 순방향
+			{
+				while (1)
+				{
+					if (snail[x][y] != 0 || y > 4 || x > 4)
+					{
+						ycount++;
+						count = 1;
+						y--;
+						x++;
+						break;
+					}
+					snail[x][y] = num;
+					printf("%d (%d, %d) [0, 0]\n", num, x, y);
+					num++;
+					y++;
+					
+				}
+
+			}
+			else if (ycount % 2 == 1)//가로 역방향
+			{
+				while (1)
+				{
+					if (snail[x][y] != 0 || y > 4 || x > 4)
+					{
+						ycount++;
+						count = 1;
+						y++;
+						x--;
+						break;
+					}
+					snail[x][y] = num;
+					printf("%d (%d, %d) [0, 1]\n", num, x, y);
+					num++;
+					y--;
+					
+				}
+			}
+			
+			break;
+			
+		case 1: // 세로 : x가 커지거나 작아짐
+			if (xcount % 2 == 0) // 세로 순방향
+			{
+				while (1)
+				{
+					if (snail[x][y] != 0 || y > 4 || x > 4)
+					{
+						xcount++;
+						count = 0;
+						x--;
+						y--;
+						break;
+					}
+					snail[x][y] = num;
+					printf("%d (%d, %d)  [1, 0]\n", num, x, y);
+					num++;
+					x++;
+					
+				}
+			}
+			else if (xcount % 2 == 1)//세로 역방향
+			{
+				while (1)
+				{
+					if (snail[x][y] != 0 || y > 4 || x > 4)
+					{
+						xcount++;
+						count = 0;
+						x++;
+						y++;
+						break;
+					}
+					snail[x][y] = num;
+					printf("%d (%d, %d)  [1, 1]\n", num, x, y);
+					num++;
+					x--;
+					
+				}
+			}
+			break;
+		}
+			
+		
+		
 	}
 
 	for (int i = 0; i < 5; i++)
