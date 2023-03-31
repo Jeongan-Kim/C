@@ -1,3 +1,3 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: 중간 디렉터리(Debug\)에 다른 프로젝트(0227_Subject.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
-  0330_과제_달팽이배열.cpp
+  0331_과제_블랙잭.cpp
   0227_Subject.vcxproj -> C:\Users\82102\Desktop\C언어\C언어 기초 수업_과제\0227_Subject_0310\Debug\C언어 기초 수업 과제.exe

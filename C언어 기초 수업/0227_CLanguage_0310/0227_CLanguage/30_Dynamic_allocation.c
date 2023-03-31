@@ -48,12 +48,7 @@ int main()
 	return 0;
 }
 
-//	<과제>
-// 백준 블랙잭(https://www.acmicpc.net/problem/2798)
-//
-//재귀 사용, 안되면 for문 사용
-//
-//brute(난폭한) 모든 경우를 확인하겠다는 뜻
+
 
 void dynamic_allocation() //우리가 주소에 직접 접근을 하기 위해서는 포인터를 써야 함.
 {
@@ -208,3 +203,11 @@ char* scanName()
 
 	return name;
 }
+
+
+//	<과제>
+// 백준 블랙잭(https://www.acmicpc.net/problem/2798)
+//
+//재귀 사용, 안되면 for문 사용
+//
+//brute(난폭한) 모든 경우를 확인하겠다는 뜻
