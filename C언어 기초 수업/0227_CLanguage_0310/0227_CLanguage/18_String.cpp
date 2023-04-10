@@ -18,7 +18,7 @@ int main()
 	printf("strcpy : %s\n", strcpy(str1, str)); //str의 문자를 str1에 복사해서 넣어주라는 함수.
 
 	str[0] = 'z';
-	printf("strcmp : %d\n", strcmp(str, str1)); //문자열 비교 함수, -1, 0, 1
+	printf("strcmp : %d\n", strcmp(str, str1)); //문자열 비교 함수, -1, 0, 1, 앞 문자열이 더 큰 코드를 가지면 1.
 
 	printf("strscat : %s\n", strcat(str, str1)); //str뒤에 str1오도록해줌, NULL제거하고 문자열 합치고 마지막에 NULL추가해줌.
 

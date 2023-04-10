@@ -79,7 +79,7 @@ int main()
 		//printf("두 점 사이의 거리는  : %d\n", distance);
 	}
 
-	//input_human();
+	input_human();
 
 	rpg();
 

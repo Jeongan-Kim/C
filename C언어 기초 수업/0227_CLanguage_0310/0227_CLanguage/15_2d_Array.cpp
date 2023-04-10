@@ -46,7 +46,7 @@ void board();
 
 int main()
 {
-	/*printArr();*/
+	printArr();
 
 	Score();
 

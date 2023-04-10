@@ -10,13 +10,13 @@ void void_pointer();
 
 int main()
 {
-	/*pointer_arr();*/
+	pointer_arr();
 
-	/*pointer_operation();*/
+	pointer_operation();
 
-	/*string_pointer();*/
+	string_pointer();
 
-	/*pointer_arr_and_2d_arr();*/
+	pointer_arr_and_2d_arr();
 
 	pointer_and_const_arr();
 	void_pointer();
@@ -46,7 +46,7 @@ void pointer_arr()
 	int arr1[3] = { 1, 2, 3 };
 	double arr2[3] = { 1.1, 2.2, 3.3 };
 
-	printf("%d %g\n", *arr1, *arr2); //%g는 float형 주소 출력 
+	printf("%d %g\n", *arr1, *arr2); //%g는 float형 값 출력 
 
 	*arr1 += 100;
 	*arr2 += 120.4;

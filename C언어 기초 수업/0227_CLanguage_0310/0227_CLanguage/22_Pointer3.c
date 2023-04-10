@@ -142,6 +142,8 @@ int main()
 
 		for (int i = 0; i < 5; i++)
 			printf("%d ", *(p + i));
+
+		printf("\n");
 	}
 	{
 		int arr[][3] = { 1, 2, 3, 4, 5, 6 };

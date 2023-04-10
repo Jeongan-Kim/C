@@ -20,9 +20,9 @@ int main()
 	printf("%d\n", *pnum);
 	printf("%d\n", num);
 	printf("%p\n", &num);
-	printf("%d\n", (int)sizeof(pnum));
+	printf("%d\n", (int)sizeof(pnum)); //4
 
-	int* ptr; //쓰레기값으로 초기화됨. 의미가 없음. 나중에 초기화를 해 주고 싶으면 NULL로 초기화해놓으면 됨.
+	//int* ptr; //쓰레기값으로 초기화됨. 의미가 없음. 나중에 초기화를 해 주고 싶으면 NULL로 초기화해놓으면 됨.
 	int* ptr = NULL;
 
 
