@@ -18,7 +18,7 @@
     <ClCompile Include="04_namespace.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\temp\01_basic\0405_CppLanguage\13_dynamic_memory_allocation.cpp">
+    <ClCompile Include="13_dynamic_memory_allocation.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

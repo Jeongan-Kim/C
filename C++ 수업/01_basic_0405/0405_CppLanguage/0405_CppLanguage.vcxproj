@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\temp\01_basic\0405_CppLanguage\13_dynamic_memory_allocation.cpp" />
     <ClCompile Include="04_namespace.cpp" />
+    <ClCompile Include="13_dynamic_memory_allocation.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
