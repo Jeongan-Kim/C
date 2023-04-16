@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0407_별피하기게임_풀이.cpp">
+    <ClCompile Include="0414_섯다게임.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
