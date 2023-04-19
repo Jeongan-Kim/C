@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="04_namespace.cpp" />
     <ClCompile Include="13_dynamic_memory_allocation.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
