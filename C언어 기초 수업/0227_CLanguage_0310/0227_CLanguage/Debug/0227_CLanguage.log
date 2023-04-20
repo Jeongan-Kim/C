@@ -1,7 +1,0 @@
-﻿  22_Pointer3.c
-C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(170,9): warning C4013: 'strcat'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(90,1): warning C4047: '초기화 중': 'int (*)[3]'의 간접 참조 수준이 'int *'과(와) 다릅니다.
-C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(215,1): warning C4047: '초기화 중': 'int'의 간접 참조 수준이 'void *'과(와) 다릅니다.
-C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(228,14): warning C4047: '=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
-C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\0227_CLanguage\22_Pointer3.c(230,14): warning C4047: '=': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
-  0227_CLanguage.vcxproj -> C:\Users\82102\Desktop\C언어\C언어 기초 수업\0227_CLanguage_0310\Debug\0227_CLanguage.exe

@@ -2,3 +2,6 @@
 ./backup/*
 /C언어 기초 수업_과제/0227_Subject_0310/.vs/0227_Subject/v16/Browse.VC.opendb
 *.opendb
+*/.vs/*
+*/Debug/*
+*/x64/*
