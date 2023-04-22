@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0420_빙고게임(컴퓨터vs나).cpp">
+    <ClCompile Include="0421_arrow_typing.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
