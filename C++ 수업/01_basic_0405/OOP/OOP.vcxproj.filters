@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="09_class_and_const.cpp">
+    <ClCompile Include="13_friend_class.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
