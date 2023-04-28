@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2a07edbf-8e36-432d-b6fa-c6e8addbb20f}</ProjectGuid>
-    <RootNamespace>OOP</RootNamespace>
+    <ProjectGuid>{5fabb899-7211-4f65-b1cb-2351388612c4}</ProjectGuid>
+    <RootNamespace>OperatorOveroading</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Operator_Overloading</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
