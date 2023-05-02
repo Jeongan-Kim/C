@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0414_bingo_distruted_solu.cpp">
+    <ClCompile Include="0428_산술 연산자 오버로딩.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
