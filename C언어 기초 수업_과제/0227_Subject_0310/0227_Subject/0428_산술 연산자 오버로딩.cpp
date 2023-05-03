@@ -79,7 +79,7 @@ public:
 	}
 
 	//후위
-	Vector& operator++(int) 
+	Vector& operator++(int) //임시 객체를 만들어서 한 단계 전 값을 리턴해야 함.
 	{
 		x++;
 		y++;

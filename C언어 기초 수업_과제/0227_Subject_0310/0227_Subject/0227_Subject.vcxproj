@@ -19,7 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0428_산술 연산자 오버로딩.cpp" />
+    <ClCompile Include="0428_지렁이게임_풀이\main.cpp" />
+    <ClCompile Include="0428_지렁이게임_풀이\Math.cpp" />
+    <ClCompile Include="0428_지렁이게임_풀이\stdafx.cpp" />
+    <ClCompile Include="0428_지렁이게임_풀이\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="0428_지렁이게임_풀이\Math.h" />
+    <ClInclude Include="0428_지렁이게임_풀이\stdafx.h" />
+    <ClInclude Include="0428_지렁이게임_풀이\Timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,5 +1,6 @@
 #include <iostream>
 //산술연산자 
+//연산자 오버로딩 시 주의 사항 : 의도를 벗어나는 연산은 하지 않는 게 좋음. 우선순위는 변하지 않음.(+보다 *가 우선)
 
 using namespace std;
 
@@ -111,10 +112,19 @@ public:
 	//전위, 후위
 	Vector& operator++()
 	{
-
+		x += 1; //이렇게 쓰거나
+		++y; //이렇게 쓰면 됨
+		++z;
+		return *this;
 	}
 
-	Vector& operator++(int) {}//구별하기 위해서 넣음 : dummy(아무 의미 없지만 구분하기 위해 쓰는 것)
+	Vector& operator++(int) //구별하기 위해서 넣음 : dummy(아무 의미 없지만 구분하기 위해 쓰는 것)
+	{
+		//원본 값은 어딘 가 저장해 놓고 계산을 함.
+		Vector temp = *this; //임시 변수에 원본값을 저장해 놓음
+		++(*this); //이렇게 해도 됨
+		return temp;//반환은 임시 변수에 저장해 놓은 이전 값을 넣음.
+	}
 
 private:
 	int x;
