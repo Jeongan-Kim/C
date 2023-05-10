@@ -12,7 +12,7 @@ int main()
 	std::cout << "입력한 숫자 : " << a << std::endl << std::endl; //한줄 더 띄기
 
 	/*
-		조정자(mainpulator)
+		조정자(manipulator)
 	*/
 
 	int num = 100;

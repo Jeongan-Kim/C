@@ -15,7 +15,7 @@ void print(int x, int y = 7) // 매개변수 하나에만 기본 값을 줘도 되는데, 앞 매개
 
 void test(int x = 10, int y = 10, int z = 10)
 {
-
+	cout << x << y << z << endl;
 }
 
 int main()
@@ -23,7 +23,7 @@ int main()
 	print(); // 7
 	//print(2); // 2인데, 두번째 print 함수에서 y를 생략하고 x에만 2를 넣은 것과 모호성 문제가 일어남
 
-	test(10, 10, 3); // 바꿔 주고 싶은 자리의 매개변수만 바꿔 주고 나머지는 명시해줘야함.
+	test(3); // 바꿔 주고 싶은 자리의 매개변수만 바꿔 주고 나머지는 명시해줘야함.
 
 	return 0;
 }

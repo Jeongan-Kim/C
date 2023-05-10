@@ -16,8 +16,3 @@ int main()
 	auto result = a + b; //int + float = float으로 컴파일러가 알아서 타입 랭킹에 따라 타입형을 추론해줌.
 	return 0;
 }
-
-auto add(int x, int y) -> int //매개변수를 auto로 받아올 수는 없음.
-{
-	return x + y;
-}

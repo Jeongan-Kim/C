@@ -31,6 +31,8 @@ int main()
 	cout << !w1 << endl; //0
 
 	cout << boolalpha; //알파벳으로 true or false를 나타내는 것
-	cout << !w2 << endl;
+	cout << !w2 << endl; //true
 	return 0;
 }
+
+//() [] new *  등등도 오버로딩 가능
