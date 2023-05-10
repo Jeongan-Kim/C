@@ -322,3 +322,181 @@ int* ptr3{ nullptr };
 ```cpp
 std::nullptr_t nptr;
 ```
+
+# 11_random_number
+## C스타일 난수 생성 방식
+```cpp
+#include <stdlib.h>
+#include <time.h>
+
+srand((unsigned int)time(NULL));
+
+for (int i = 0; i < 10; i++)
+{
+	printf("%d ", rand() % 10);
+}
+```
+
+## C++스타일 난수 생성 방식
+```cpp
+#include <random>
+random_device rd; //난수 생성할 시드값(컴퓨터가 마주하는 모든 경우의 랜덤한 상황
+
+mt19937 messenne(rd());
+
+uniform_int_distribution<> randNUM(1, 10);// 동일한 확률로 난수가 생성되게 하는 작업(분포도) : 동일한 확률로 1부터 10까지 나오게 함.
+
+for (int i = 0; i < 10; i++)
+	cout << randNUM(messenne) << " ";
+```
+
+# 12_array
+## C스타일 방식
+```cpp
+int arr1[] = { 1, 2, 3, 4, 5 };
+```
+## C++스타일 방식
+```cpp
+int arr2[]{ 1, 2, 3, 4, 5 };
+int arr3[](1, 2, 3, 4, 5); //소괄호는 불가능
+```
+
+## STL(Standard Template Libraries)
+배열 구조를 간단하게 짜고 싶을때 사용
+### template : <> (간단하게만 알아보자)
+함수나 클래스를 개별적으로 다시 작성하지 않아도 여러 자료형으로 사용할 수 있도록 만든 틀.
+```cpp
+std::array<int, 5> arr4; //int 가 5개인 arr4라는 배열이 선언됨, 더 직관적
+array<int, 5> arr5{ 1, 2, 3, 4, 5 }; //초기화도 가능
+```
+배열 속 특정 원소에 접근하고 싶을때
+```cpp
+cout << arr5[0] << endl; 
+cout << arr5[1] << endl; 
+cout << arr5.at(2) << endl; //at으로 원소에 접근 가능
+cout << arr5.at(3) << endl;
+cout << arr5.at(4) << endl;
+cout << arr5.size() << endl; //size()로 사이즈 측정 가능
+
+//차이점
+cout << arr5[5] << endl; //쓰레기값 나오지만 어쨌든 접근은 됨.
+cout << arr5.at(5) << endl; //error. 대신 느림. 안정적.
+```
+
+
+# 13_dynamic_memory_allocation(동적할당)
+## C스타일 동적할당
+- 사이즈를 매개변수로 받고, 반환형이 void* 형이므로 크기와 캐스팅을 활용해야 함.
+- 메모리를 동적으로 할당하는 것만이 목적이어서, 초기값을 지정해줄 수 없음.
+```cpp
+#include <stdlib.h> //헤더 파일 필요
+
+int* ptr = (int*)malloc(5 * sizeof(int));
+
+if (ptr == NULL)
+	exit(1); //예외 처리를 해줬어야 안전했음
+
+free(ptr);
+ptr = NULL;
+```
+
+## C++스타일 동적할당
+- 할당할 자료형을 지정하면 알아서 할당할 자료형의 포인터로 넘어오기 때문에 같은 자료형의 포인터 변수로 받아오기만 하면 된다.
+- 할당과 동시에 초기화 가능
+- 생성자(객체를 자동으로 초기화해주는 함수)를 자동으로 호출.(malloc과 가장 큰 차이점)
+```cpp
+//별도의 헤더파일 필요없음
+
+int* ptr1 = new int; 
+delete ptr; //해제, 널 초기화 해주지 않아도 됨
+
+int* ptr2 = new int(7); //크기를 직접 초기화
+delete ptr2;
+
+int* ptr3 = new int{ 7 };
+delete ptr3;
+
+int* ptr4 = new(std::nothrow) int{ 7 }; 
+//안정적으로 예외처리를 해주기 위해서 이렇게 초기화
+	
+if (ptr4 == nullptr) //예외 처리
+	std::cout << "Error";
+
+if (ptr4 != nullptr)
+	delete ptr4;
+	
+//배열처럼
+int* arr = new int[10]{ 1, 2, 3, 4, 5, 6 };
+delete[] arr;
+
+//포인터 배열을 2차원처럼 사용 가능
+int** ptrArr = new int* [5];
+
+ptrArr[0] = new int[10];
+ptrArr[1] = new int[10];
+ptrArr[2] = new int[10];
+ptrArr[3] = new int[10];
+ptrArr[4] = new int[10];
+
+//지울때에는 안에 것부터 지우고 바깥을 지움
+for (int i = 0; i < 5; i++)
+	delete[] ptrArr[i];
+
+delete ptrArr;
+```
+
+## 구조체 동적할당
+```cpp
+struct Test
+{
+	int a;
+	int b;
+	std::string str;
+
+	void printNUM()
+	{
+		std::cout << "Hello" << std::endl;
+	}
+};
+
+int main()
+{
+    Test* test = new Test;
+
+    test->a = 10;
+    test->b = 20;
+    test->str = "hello";
+    test->printNUM();
+
+    return 0;
+}
+```
+## malloc vs new
+- malloc은 구조체에서 pod(plain old data : 연속된 메모리) 타입을 인자로 받아와서 쓸 수 있음
+- string, 함수 같은 건 pod 타입이 아니라서 malloc 쓸 수 없음.
+- malloc의 경우, realloc이라는 함수로 재할당이 가능하지만, new에는 이에 대응하는 것이 없기때문에 새로 할당 -> 복사 -> 해제 하는 과정을 거쳐야 한다. 하지만 객체의 경우 반드시 new / delete 를 사용해서 할당 / 해제 해주어야 한다. 객체가 아닌 경우에 재할당이 빈번하게 일어난다면, malloc / free 가 더 좋은 선택이 될 수 있다.
+
+# 14_structures
+여러 개의 변수를 가진 객체를 프로그래밍 할 때 사용.
+```cpp
+struct person
+{
+	void __thiscall Print(/* person* */)
+	{
+		cout << age << endl;
+	}
+
+	int age;
+	float weight = 50.0f;
+	string name = "Jeongan";
+};
+
+int main()
+{
+	person p1;
+
+	p1.Print(); //멤버변수에 접근 시
+	//person::Print(); //이렇게는 불가능
+	return 0;
+}
+```
