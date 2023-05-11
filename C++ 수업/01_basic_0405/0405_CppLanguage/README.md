@@ -500,3 +500,245 @@ int main()
 	return 0;
 }
 ```
+
+# 15_reference(참조자)_variable
+
+## reference(참조자)
+```cpp
+int a = 10;
+int& b = a;
+```
+이때, b는 a의 참조자이다. int형 변수의 참조자를 만든 것으로 자료형 뒤에 &를 붙인 것이다.
+포인터 타입의 참조자라면, int*&로 쓰면 된다. 
+- b가 a의 참조자이다 = b는 a의 또다른 이름이다.
+- 즉, b에 어떠한 작업을 하든 사실상 a에 작업을 하는 것과 마찬가지이다.
+
+참조자는 포인터와 상당히 유사한 개념이지만 차이점이 있다.
+
+## 포인터 vs 참조자
+- 레퍼런스는 반드시 처음에 누구의 별명이 될 것인지 지정해야 한다.
+	```cpp
+	int& b; //error
+	```
+	위와 같은 문장은 불가능.
+	```cpp
+	int* p;
+	```
+	반면에 포인터는 가능하다.
+
+- 레퍼런스가 한 번 참조자가 되면 절대로 다른 이의 참조자가 될 수 없다.
+	```cpp
+	int a = 10;
+	int& b = a;
+	int c = 20;
+	int& b = c; 
+	```
+	이 코드는 b가 a의 참조자이기도 하고 c의 참조자이기도 해버려서 a = c라는 말이다.
+
+	반면에 포인터는 누구를 가리키는지 자유롭게 바뀔 수 있다.
+	```cpp
+	int a = 10;
+	int* p = &a; // p 는 a 를 가리킨다.
+	int b = 3;
+	p = &b // 이제 p 는 a 를 버리고 b 를 가리킨다
+	```
+- 레퍼런스는 메모리 상에 존재하지 않을 수도 있다.
+	```cpp
+	int a = 10;
+	int& b = a;
+	```
+	이때 b라는 참조자는 메모리를 갖고 있지 않아도 된다. a로 대치해버리면 되기 때문에!
+	하지만 항상 메모리 상에 존재하지 않는 것은 아니다.
+
+- 여러가지 참조자 예시
+	```cpp
+	int x;
+	int& y = x; //y는 x의 참조자.
+	int& z = y; //z는 y의 참조자(?). -> 참조자의 참조자가 아니라 x의 참조자를 선언하라는 의미. 
+	//즉, z는 x의 참조자.
+	```
+	```cpp
+	int& a = 4; //error. 상수 값은 리터럴이기에 참조 불가능
+	const int& a = 4; //상수 참조자라면 리터럴도 참조할 수 있다. 불변이기에.
+	// 리터럴 : 소스 코드 상에서 고정된 값을 가지는 것.
+	int b = a; //a는 4라는 상수를 참조하는 const 참조자이므로 b = 4 라는 의미가 된다.
+
+## L-value
+- & 연산자를 통해 주소값을 알아낼 수 있는 값. 주소값을 취할 수 있는 값.
+- 기본적으로 식별자를 가지고 다른 값을 복사 받을 수 있다.
+- 대입이 가능하다.
+- 어떠한 표현식의 왼쪽 오른쪽 모두에 올 수 있다.
+
+## R-value
+- 주소값을 취할 수 없는 값
+- 연산 등을 할 때만 잠깐 존재할 뿐 연산이 끝나면 사라지는 값.
+- 상수이거나 식별자가 존재하지 않아서 자신의 상태를 수정할 수가 없다.
+- 어떠한 표현식의 오른쪽에만 올 수 있다.
+```cpp
+int a = 3; //a : L-value, b : R-value
+
+
+int& b = a; //b : L-value
+int& c = 3; //error. R-value를 참조할 수 없음.
+```
+이렇게 L-value 참조자(b)도 L-value가 될 수 있다.
+함수에 넣어보면,
+```cpp
+int Test1(int& a) //원본값이 복사되어 들어가서 원본값을 바꾸겠다.(copy)
+{
+	return a; //원본 값이 수정됨.
+}
+
+int Test2(int&& a) //원본값이 없으므로 이 안에서만 쓰고 말겠다.(move)
+{
+	return a;
+}
+```
+
+# 16_range_based_for_loop(범위기반 반복문)
+범위 기반 for문 : 범위가 있어야지만 쓸 수 있다.
+```cpp
+int fibonacci[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 };
+
+//일반적으로 알고 있는 for문
+for (int i = 0; i < sizeof(fibonacci) / sizeof(int); i++)
+	cout << fibonacci[i] << endl;
+
+//위 식을 범위 기반 for문으로 쓰면
+for (const auto& number : fibonacci) 
+//fibonacci 범위의 수들을 변동 없이(const) 참조해서(&) 하나씩 접근하겠다.
+	cout << number << endl;
+
+for (const auto& number : { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 })
+	cout << number << endl;
+```
+하지만 범위가 없는 경우에는 쓸 수 없다.
+```cpp
+int* test = new int[10];
+for (auto t : test); //error
+```
+
+# 17_type_information
+여러 자료형으로 오버로딩 함수를 만들고 싶을 때, 간단하게 쓰는 방법을 알아보자.
+```cpp
+int add(int a, int b) { return a + b; }
+short add(short a, short b) { return a + b; }
+float add(float a, float b) { return a + b; }
+```
+이렇게 모든 자료형에 대한 덧셈 함수를 만들기 번거로우니, Template(템플릿)을 사용해서 간단하게 쓸 수 있다.
+- Template : 프로그래머가 원하는 타입을 넣어주면 알아서 코드를 찍어내는 틀.
+```cpp
+template <typename T> //<class T>라고 써도 됨
+T add(T a, T b) 
+{
+	return a + b;
+}
+```
+
+# 18_assert
+디버깅 버전에서 오류 체크를 하기 위한 구문(컴파일은 되지만 실행 중 오류남)
+```cpp
+#include <cassert> //필요한 헤더파일
+
+int a;
+cin >> a;
+
+//a에 들어온 숫자가 0일 경우 오류 체크를 하려면
+assert(a != 0);
+//괄호 안이 true면 지나가고, false면 error.
+assert(false); //무조건 error.
+assert(a != 0 && "a is 0") //오류 시 출력할 구문도 추가 가능.
+```
+static assert(정적 어설션) : 컴파일 도중에 error가 나게 하는 것. (프로그램 실행 자체가 안됨.)
+```cpp
+static_assert(false);
+
+const int a = 6;
+const int b = 8;
+static_assert(a < b, "a가 b보다 크다."); //오류 출력창에 나오는 구문
+```
+
+# 19_function_pointer
+- 함수도 포인터로 가리킬 수 있다. 즉, 함수도 주소가 있다. 
+
+```cpp
+int Func(int a, int b) 
+{
+    return a + b;
+}
+int main() 
+{
+    printf("함수 Func의 주소 : %p\n", &Func); //&함수이름
+}
+```
+- 함수 포인터는 함수를 또 다른 함수의 인수로 전달할 떄 유용하게 사용된다.
+```cpp
+int function(int, int) { } //함수1 선언
+int (*ptr_func) (int, int); //함수1의 포인터 선언
+int function2(int, int, ptr_func); //함수 포인터를 매개변수로 사용
+```
+
+## 함수 포인터 선언 방법 
+### 1.
+```cpp
+int(*ptrFunc) (int a, int b);
+//함수 반환형(함수 포인터 이름) (매개 변수)
+//매개 변수가 없다면 빈 괄호나 void 사용
+```
+### 2. typedef 키워드를 이용하면 복잡한 함수 포인터 형에 새로운 이름을 붙일 수 있다.
+```cpp
+int function(int, int) { }
+
+typedef int(*ptrFunc) (int a, int b); //ptrFunc이 이러한 형태의 포인터들의 이름이 된다.(구조체처럼)
+ptrFunc ptr_func = function; 
+```
+
+### 3. auto 키워드를 이용하면 복잡한 함수 포인터 형으로 자동 타입 변환이 된다.
+```cpp
+auto ptr_func = function;
+```
+
+### 4. <functional> 헤더 파일을 사용하여 선언하는 방법
+```cpp
+#include <functional>
+int function(int, int) { }
+
+std::function<int(int, int)> ptr_func = function;
+```
+
+# 20_elliopsis(생략 부호 '...')
+- 함수를 선언할 때, 매개변수가 정해지지 않았으면 할때 생략 부호 '...'를 쓴다.
+- 매개 변수가 정해지지 않은 함수 = 가변 함수(variadic function)
+- va_list로 생성 -> va_start와 va_end로 시작과 끝을 설정
+
+```cpp
+#include <cstdarg> //생략부호를 위한 헤더 파일
+
+double findAverage(int count, ...) // 파라미터로 받아올 argument의 갯수
+{ 
+
+double sum = 0;
+
+    va_list list; // list를 생성한다.
+
+    va_start(list, count); // list의 개수에 해당하는 count를 넘겨준다.
+
+    for(int arg = 0; arg < count; arg++) // 필요한 계산을 해준다.
+        sum += va_arg(list, int); // 어떤 타입으로 사용할지는 정헤져있어야 한다.
+
+    va_end(list);
+
+return sum / count;    
+}
+
+int main()
+{
+    cout << findAverage(1, 1, 2, 3, "hello", 'c') << endl;
+    cout << findAverage(3, 1, 2, 3) << endl;
+    cout << findAverage(5, 1, 2, 3, 4, 5) << endl;
+    cout << findAverage(10, 1, 1, 2, 3, 4, 5) << endl;
+    //인자를 여러개 넣어도 카운트 값에 맞는 개수만큼만 평균 계산에 들어감
+
+    return 0;
+}
+```

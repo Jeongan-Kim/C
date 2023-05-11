@@ -18,7 +18,7 @@ int main()
 		cout << number << endl;
 
 	int* test = new int[10];
-	//for (auto t : test);...
+	//for (auto t : test);
 
 	return 0;
 }

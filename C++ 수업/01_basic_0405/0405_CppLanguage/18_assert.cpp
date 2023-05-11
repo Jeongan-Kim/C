@@ -23,7 +23,7 @@ int main()
 	//컴파일 하는 중에 터지게 하는 것도 있다. => static assert
 	//static_assert(false);
 
-	const int x1 = 6;
+	const int x1 = 8;
 	const int y1 = 7;
 	//static_assert(x1 < y1, "x1 is bigger than y1");
 
