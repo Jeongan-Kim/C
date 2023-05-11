@@ -15,28 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0428_지렁이게임_풀이\main.cpp">
+    <ClCompile Include="0511_special_member_function.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="0428_지렁이게임_풀이\Math.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="0428_지렁이게임_풀이\stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="0428_지렁이게임_풀이\Timer.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="0428_지렁이게임_풀이\Math.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="0428_지렁이게임_풀이\stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="0428_지렁이게임_풀이\Timer.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
