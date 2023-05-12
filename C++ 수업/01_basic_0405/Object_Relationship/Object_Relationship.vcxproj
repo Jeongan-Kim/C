@@ -18,13 +18,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="05_dependencies.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7ffd211b-037f-43c4-81e5-10b921f644c1}</ProjectGuid>
-    <RootNamespace>My0405CppLanguage</RootNamespace>
+    <ProjectGuid>{bb4e9b1d-79f4-4547-9f1e-991af555490a}</ProjectGuid>
+    <RootNamespace>ObjectRelationship</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>01_basic</ProjectName>
+    <ProjectName>04_Object_Relationship</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

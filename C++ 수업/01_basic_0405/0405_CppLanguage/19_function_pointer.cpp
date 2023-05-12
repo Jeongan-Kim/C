@@ -10,6 +10,8 @@ bool func(const int& x) //L-value reference
 	return x > 0;
 }
 
+typedef myint int; //myint를 int처럼 쓰겠다!
+
 typedef bool(*funcPtr)(const int&);
 
 using funcType = bool(*)(const int&);
