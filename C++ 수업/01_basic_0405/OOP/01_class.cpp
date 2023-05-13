@@ -48,7 +48,8 @@ int main()
 	Person p; // 이렇게 해야 실체가 생겨서 object, instance라고 할 수 있음
 	person p1;
 
-	/*p1.age= 1;
-	p.Sleep;*/
+	//p1.age= 1;
+	p.Sleep();
+
 	return 0;
 }

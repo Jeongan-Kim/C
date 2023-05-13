@@ -13,7 +13,7 @@ public:
 
 	int& GetValue() { cout << "not const" << endl; return value1; }
 
-	//int& GetValue1() const { cout << " comnst"; return value1; } //함수 자체에 const가 붙은 경우 const가 붙지 않은 변수를 쓰려고 하면 오류가 남.
+	//int& GetValue1() const { cout << " const"; return value1; } //함수 자체에 const가 붙은 경우 const가 붙지 않은 변수를 쓰려고 하면 오류가 남.
 	//우회적으로 수정할 수 있기 때문에.(?)
 	const int& GetValue1() const { cout << "const"; return value1; } //오버로딩 함수. 상수함수라는 구분이 가능해서 .
 
