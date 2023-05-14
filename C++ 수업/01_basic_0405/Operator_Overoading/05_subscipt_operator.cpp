@@ -50,9 +50,11 @@ int main()
 
 	list[0] = 1;
 	list[1] = 2;
+	list[2] = 3;
 
 	cout << list[0] << endl;
 	cout << list[1] << endl;
+	cout << list[3] << endl;
 	cout << list[20] << endl; //오류 처리 완료.
 
 

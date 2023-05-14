@@ -4,49 +4,49 @@
 
 using namespace std;
 
-//#pragma region 1. 전역함수에 의한 연산자 오버로딩
-//class Won
-//{
-//public:
-//	Won(int value) : value(value){}
-//
-//	int GetValue() const { return value; }
-//
-//private:
-//	int value;
-//
-//	friend int operator+(const Won& lhs, const Won& rhs); //private지만 friend가 붙어서 전역함수처럼 쓰임, lhs 좌항, rhs 우항
-//
-//	//생성자를 통해 만들어줄 수도 있음
-//	friend Won operator-(const Won& lhs, const Won& rhs) //함수 정의부를 클래스 안에서 써줘도 됨.
-//	{
-//		return lhs.value - rhs.value;
-//	}
-//};
-//
-//int main()
-//{
-//	Won l(10), r(10);
-//
-//	int result = l + r;
-//	cout << result << endl;
-//
-//	Won result2(l - r); //객체 생성과 동시에 해도 되지만 결과는 getvalue로 가져와야 함
-//	cout << result2.GetValue() << endl;
-//
-//	return 0;
-//}
-//
-//int operator+(const Won& lhs, const Won& rhs)
-//{
-//	return lhs.value + rhs.value;
-//}
-//
-///*
-//	operator+(a, b);
-//*/
-//
-//#pragma endregion
+#pragma region 1. 전역함수에 의한 연산자 오버로딩
+class Won
+{
+public:
+	Won(int value) : value(value){}
+
+	int GetValue() const { return value; }
+
+private:
+	int value;
+
+	friend int operator+(const Won& lhs, const Won& rhs); //private지만 friend가 붙어서 전역함수처럼 쓰임, lhs 좌항, rhs 우항
+
+	//생성자를 통해 만들어줄 수도 있음
+	friend Won operator-(const Won& lhs, const Won& rhs) //함수 정의부를 클래스 안에서 써줘도 됨.
+	{
+		return lhs.value - rhs.value;
+	}
+};
+
+int main()
+{
+	Won l(10), r(10);
+
+	int result = l + r;
+	cout << result << endl;
+
+	Won result2(l - r); //객체 생성과 동시에 해도 되지만 결과는 getvalue로 가져와야 함
+	cout << result2.GetValue() << endl;
+
+	return 0;
+}
+
+int operator+(const Won& lhs, const Won& rhs)
+{
+	return lhs.value + rhs.value;
+}
+
+/*
+	operator+(a, b);
+*/
+
+#pragma endregion
 
 #pragma region 2. 멤버함수에 의한 연산자 오버로딩
 

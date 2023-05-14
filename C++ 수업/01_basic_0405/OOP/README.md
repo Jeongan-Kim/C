@@ -507,3 +507,216 @@ int main()
 	return 0;
 }
 ```
+
+# 12_SOLID_and_singleton_pattern
+## SOLID(객체지향 설계 원칙) : 지켜야할 원칙
+- 단일 책임 원책(Single Responsibility Principle) : 모든 클래스는 각각 하나의 기능만을 책임만 가져야 한다.
+
+- 개방-폐쇄 원칙(Open Closed Principle) : 확장에는 열려 있고 수정에는 닫혀 있어야 한다. 기능을 추가할때 다른 코드들은 수정하지 않으면서 해야 함.
+
+- 리스코프 치환 원칙(Liskov Substitution Principle) : 자식 클래스는 언제나 부모 클래스를 대체할 수 있다.(자식 클래스는 부모 클래스를 그대로 받아오므로)
+
+- 인터페이스 분리 원칙(Interface Segregation Principle) : 한 클래스가 내가 사용하지 않을 인터페이스는 구현하지 말아야 한다.
+
+- 의존 역전 원칙(Dependency Inversion Principle) : 클래스끼리 엮일때, 변화가 거의 없는 것에 의존해서 만들어야 한다.
+
+## singleton_pattern
+디자인 패턴 : 자주 쓰는 코드를 재사용할 수 있게 하는 것.
+- 싱글톤 패턴 : 객체가 실체화되는 것이 한 번만 일어난 것. 간단한 일만 할 경우에 쓰임(여러 사람이 공유해서 하나를 사용하는 경우)
+	- 하지만 하나가 너무 많은 일을 담당하면 "개방-폐쇄 원칙"에 위배되므로 왠만하면 사용 지양.
+
+```cpp
+class Audio
+{
+public:
+	static Audio& GetInstance() //모든 객체가 공유하는 static 생성자
+	{
+		static Audio audio;
+		return audio;
+	}
+
+	void OutSound(string music)
+	{
+		cout << "소리 출력 : " << music << endl;
+	}
+
+private: //프리빗으로 숨기거나 {}를 지우고 "= delete"를 붙여서 막을 수 있음. => 실체가 생성이 안됨.
+	Audio() {} //기본 생성자
+	Audio(const Audio& audio) = delete; //복사 생성자
+	Audio& operator=(const Audio& audio) {}  //복사 대입 생성자
+};
+
+int main()
+{
+	//Audio a; 생성자를 다 막아놔서 생성이 안됨.
+
+	string bgm("던전");
+	Audio::GetInstance().OutSound(bgm); //싱글톤 방식. 실체를 만들면 메모리를 쓰기때문에 실체를 만들지 않고 가져다 쓰는 것.
+
+	return 0;
+}
+```
+
+
+# 13_friend_class
+friend도 객체 지향을 부수는 것으로 여겨지기도 한다. 많이 쓰면 좋지 않다.
+또한, 상속이 되지 않는다.
+
+## friend global function
+```cpp
+class A
+{
+	int value = 1;
+
+	friend void doSomething1(const A& a); //프리빗 영역이지만 friend 함수는 전역함수처럼 접근해서 쓸 수 있음.
+	/*friend void doSomething2(const A& a)
+	{
+		cout << a.value << endl;
+	}*///이렇게 내부에서 정의를 해 줘도 됨.
+};
+
+void doSomething1(const A& a)
+{
+	cout << a.value << endl;
+}
+
+int main()
+{
+	A a;
+	doSomething1(a);
+
+	return 0;
+}
+
+```
+
+## friend member class(더 안전한 방법)
+자신의 클래스의 private 멤버를 다른 클래스의 '특정 멤버 함수 내에서만' 접근 가능하게 하는 것.
+```cpp
+class A
+{
+public:
+	void attack(B& b); //클래스 B의 프리빗 변수를 갖고 와서 씀, 객체를 생성하지 않게 참조 매개변수를 씀.
+
+private:
+	int a;
+};
+
+class B
+{
+	friend void A::attack(B& b); //B가 A한테 attack에서 모든 변수에 접근 가능하도록 허용한다는 뜻.
+	//클래스 A의 멤버함수 attack을 선언할 때, 클래스 B를 friend로 취급하겠다는 코드.
+
+private:
+	int hp = 100;
+};
+
+
+void A::attack(B& b)
+{
+	cout << "b의 체력 : " << b.hp << endl;
+
+	cout << "공격!" << endl;
+	b.hp -= 10;
+}
+
+int main()
+{
+	A a;
+	B b;
+
+	//b.a; 이런건 불가능(?)
+}
+```
+
+## friend class
+자신의 클래스의 private 멤버를 다른 클래스에서 접근 가능하게 하는 것.
+```cpp
+class A
+{
+public:
+	void PrintBValue1(class B& b);
+	void PrintBValue2(class B& b);
+};
+
+class B
+{
+	friend class A; // B의 모든 멤버 변수를 A에서 접근 가능함.
+	int value1 = 10;
+	int value2 = 20;
+};
+
+void A::PrintBValue1(B& b)
+{
+	cout << b.value1 <<endl;
+}
+
+void A::PrintBValue2(B& b)
+{
+	cout << b.value2 << endl;
+}
+
+int main()
+{
+	A a;
+	B b;
+
+	a.PrintBValue1(b);
+	a.PrintBValue2(b);
+}
+```
+
+# 14_anonymous_object(익명 객체)
+한번 쓰고 안쓸 것 같은 것은 굳이 실체화하지 않고 익명객체화 하자.
+```cpp
+class A
+{
+public:
+	void print()
+	{
+		cout << "print" << endl; 
+	}
+};
+
+int main()
+{
+	A().print(); // 이렇게 익명객체화하면 한번 쓰이고 삭제됨.
+	return 0;
+}
+```
+
+# 15_nested_types(중첩 자료형)
+중첩 클래스(nested class) : 클래스나 구조체 안에 다른 클래스나 구조체를 선언하는 것을 말한다.
+- 외부 클래스의 private 멤버에 대한 접근을 허용하면서도, 다른 클래스나 전역 namespace에서의 이름 충돌을 방지할 수 있다. 
+- 코드의 가독성과 모듈화를 높여줄 수도 있다.
+- 선언 시, 클래스 이름 앞에 외부 클래스 이름을 붙이는 방식으로 선언한다.
+- 외부 클래스의 멤버함수 내에서만 중첩 클래스의 private 멤버에 접근할 수 있다.
+```cpp
+class Outer {
+public:
+    class Inner 
+	{ // Inner 클래스를 Outer 클래스의 중첩 클래스로 선언
+    public:
+        void func() 
+		{
+            std::cout << "Hello from Inner!" << std::endl;
+        }
+    };
+    void callInnerFunc() 
+	{
+        Inner innerObj; // Inner 클래스의 객체 생성
+        innerObj.func(); // Inner 클래스의 멤버 함수 호출
+    }
+private:
+    int x = 10;
+};
+
+int main() 
+{
+    Outer::Inner innerObj; // Outer 클래스의 중첩 클래스인 Inner 클래스의 객체 생성
+    innerObj.func(); // Inner 클래스의 멤버 함수 호출
+    Outer outerObj;
+    outerObj.callInnerFunc(); // Outer 클래스의 멤버 함수 내에서 Inner 클래스의 멤버 함수 호출
+    return 0;
+}
+```
