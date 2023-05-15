@@ -19,7 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0511_special_member_function.cpp" />
+    <ClCompile Include="0512_bank_system\main.cpp" />
+    <ClCompile Include="0512_bank_system\stdafx.cpp" />
+    <ClCompile Include="0512_bank_system\Math.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="0512_bank_system\stdafx.h" />
+    <ClInclude Include="0512_bank_system\Math.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

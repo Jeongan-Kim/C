@@ -15,7 +15,7 @@ public:
 	int length = 0;
 
 public:
-	Mystring(const char* const src = " ") //공백 문자열
+	Mystring(const char* const src = " ") //공백 문자열(nullptr이 들어오면 빈 문자열을 생성한다)
 	{
 		//이때, 아무것도 받아오지 않으면 터지게 만들어보자
 		assert(src);
@@ -29,7 +29,7 @@ public:
 		data[length - 1] = '\0'; //마지막 문자는 공백으로 하기 위해서
 	}
 
-	//복사 생성자
+	//복사 생성자(깊은 복사)
 	Mystring(const Mystring& other) 
 		//포인터로 복사했을 때에는 주소가 넘어옴(원본의 주소와 같아짐
 		//-> 소멸자에 의해 없어지는데 other은남아있어서 소멸된 곳을 가리키는 상황이 생김(허상포인터)
@@ -97,7 +97,7 @@ public:
 		this->length = std::move(other.length);
 		//우측 값 레퍼런스를 통해 타입 캐스팅한다고 생각하자.
 
-		//이후 other 우측값 레퍼런스는 한번 쓰고 말거니까 더이상 쓸 수 없게 접근하지 못하게 해줌
+		//이후 other(우측값 레퍼런스)는 한번 쓰고 말거니까 더이상 쓸 수 없게 접근하지 못하게 해줌
 		other.data = nullptr;
 	}
 
