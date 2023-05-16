@@ -6,10 +6,8 @@
 #include <list>
 #include <sstream>
 #include <limits>
+#include <string>
 
 #include "Math.h"
-#include "Bank.h"
-#include "Customer.h"
 
 using namespace std;
-list<Customer> customers;

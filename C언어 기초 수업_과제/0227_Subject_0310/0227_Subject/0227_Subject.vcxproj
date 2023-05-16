@@ -22,14 +22,10 @@
     <ClCompile Include="0512_bank_system\main.cpp" />
     <ClCompile Include="0512_bank_system\stdafx.cpp" />
     <ClCompile Include="0512_bank_system\Math.cpp" />
-    <ClCompile Include="0512_bank_system\Customer.cpp" />
-    <ClCompile Include="0512_bank_system\Bank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="0512_bank_system\stdafx.h" />
     <ClInclude Include="0512_bank_system\Math.h" />
-    <ClInclude Include="0512_bank_system\Customer.h" />
-    <ClInclude Include="0512_bank_system\Bank.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
