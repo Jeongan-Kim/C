@@ -6,6 +6,9 @@ using namespace std;
 /*
 	지금까지 배운 복사 생성자는 얕은 복사 생성자 였음
 	deep copy vs shallow copy
+
+	깊은 복사 : 멤버 대 멤버 복사가 생기는데, 포인터를 복사할때에는 얕은 복사를 하면(그대로 복사되기 때문에) 원본과 주소가 같아지는 문제가 생기지 않게 깊은 복사 생성자를 만들어줘야 함
+	동적할당을 하면서 나중에 복사된 객체를 해제해서 없앨 때 원본도 같이 사라져 버리는 일이 일어나지 않게 하는 것.
 */
 
 class Mystring 
@@ -88,8 +91,8 @@ public:
 		return *this;
 	}
 
-	//이동 생성자
-	Mystring(Mystring&& other) //r-value 레퍼런스니까 &&
+	//이동 생성자 : 원본을 없애는 게 아니라 이동시킨다고 생각하자.
+	Mystring(Mystring&& other) //r-value 레퍼런스니까 &&, l벨류처럼 받아와 지긴 함.
 	{
 		cout << "move constructor" << endl;
 
@@ -136,7 +139,7 @@ int main()
 {
 	cout << "#############1###########" << endl;
 	Mystring str("Hello");
-	cout << (int*)str.data << endl; // 주소 찍기, &str.data로 찍으면 객체의 주소가 찍힘, 문자열이 저장된 공간의 주소를 찍어야 함
+	cout << (int*)str.data << endl; // 주소 찍기, &str.data로 찍으면 객체의 주소가 찍힘, 문자열이 저장된 공간의 주소를 int형으로 찍으려고 이렇게 씀. 
 	cout << str.data << endl << endl; //값 찍기
 
 	cout << "#############2###########" << endl;
@@ -146,12 +149,12 @@ int main()
 		copy = str;
 		cout << (int*)copy.data << endl;
 		cout << copy.data << endl << endl;
-	}
+	} //지역을 나오면서 복사된 객체는 사라짐
 
 	cout << "#############3###########" << endl;
 	if (str.data != nullptr)
 	{
-		cout << (int*)str.data << endl;
+		cout << (int*)str.data << endl; // 원본은 남아있는지 확인
 		cout << str.data << endl << endl;
 	}
 	else
@@ -162,7 +165,7 @@ int main()
 	cout << "#############4###########" << endl;
 	//move
 	{
-		Mystring copy(std::move(str));
+		Mystring copy(std::move(str)); //copy로 이동했으니 str은 없어짐
 		copy = std::move(str);
 
 		cout << (int*)copy.data << endl;

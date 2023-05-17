@@ -19,6 +19,8 @@ public:
 		{
 			cout << "Array index out of bound exception" << endl;
 		}
+		//이렇게 임의로 오류처리 하지 않고 아예 막고 싶으면
+		//assert(index >= 10); 이렇게.
 
 		return list[index];
 	}

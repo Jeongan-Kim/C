@@ -12,7 +12,7 @@ public:
 	static const int test = 10; //const는 선언과 동시에 초기화가 이루어져야 하므로 이때는 초기화 가능
 };
 
-int Test::count = 10; //Test안에 있는 count
+int Test::count = 10; //Test안에 있는 count지만 완전 Test에 속한 건 아니고 모든 클래스가 공유하기 떄문에 바깥에서 초기화해 줘야 함.
 
 int main()
 {
