@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_basic", "0405_CppLanguage\0405_CppLanguage.vcxproj", "{7FFD211B-037F-43C4-81E5-10B921F644C1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_basic", "01_basic\01_basic.vcxproj", "{7FFD211B-037F-43C4-81E5-10B921F644C1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_OOP", "OOP\OOP.vcxproj", "{2A07EDBF-8E36-432D-B6FA-C6E8ADDBB20F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_OOP", "02_OOP\02_OOP.vcxproj", "{2A07EDBF-8E36-432D-B6FA-C6E8ADDBB20F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_Operator_Overloading", "Operator_Overoading\Operator_Overoading.vcxproj", "{5FABB899-7211-4F65-B1CB-2351388612C4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_Operator_Overloading", "03_Operator_Overloading\03_Operator_Overloading.vcxproj", "{5FABB899-7211-4F65-B1CB-2351388612C4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STL", "STL\STL.vcxproj", "{F0DCBDB5-007C-4BAE-89F9-DEDAC98CCDE8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_Object_Relationship", "Object_Relationship\Object_Relationship.vcxproj", "{BB4E9B1D-79F4-4547-9F1E-991AF555490A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_Object_Relationship", "04_Object_Relationship\04_Object_Relationship.vcxproj", "{BB4E9B1D-79F4-4547-9F1E-991AF555490A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_Inheritance", "05_Inheritance\05_Inheritance.vcxproj", "{161C9100-2EC3-4D5D-9DAA-A15386635D40}"
 EndProject
