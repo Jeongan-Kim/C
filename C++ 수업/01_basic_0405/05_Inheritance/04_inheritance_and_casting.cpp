@@ -4,7 +4,7 @@ using namespace std;
 
 /*
 * //부모 클래스가 자식 클래스보다 더 크다.(물려 받으므로)
-	Up casting
+	Up casting : 자식 클래스를 부모 클래스 포인터로 가리키는 것.
 
 	Down casting : 부모클래스의 포인터가 가리키는 객체를 자식클래스의 포인터로 가리키는 것
 */
