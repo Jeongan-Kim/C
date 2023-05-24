@@ -80,7 +80,7 @@ public:
 
 int main()
 {
-	Car("car1").movement(); //1
+	Car("car1").movement(); //1 
 	Airplane("airplane1").movement(); //2
 	Ship("ship1").movement(); //3
 	Subway("subway1").movement(); //4
