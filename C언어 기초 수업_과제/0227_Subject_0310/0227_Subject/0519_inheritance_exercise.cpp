@@ -16,7 +16,7 @@ class Vehicle
 	string name;
 
 public:
-	Vehicle() {} //기본 생성자
+	Vehicle() {} //기본 생성자(자식 클래스에게 자신의 정보를 상속할 준비를 하는 의미에서 필요함)
 	Vehicle(string name) : name(name) 
 	{
 		if (count >= 5)
@@ -28,7 +28,7 @@ public:
 	}
 	virtual void movement() {}
 
-protected:
+protected: //private여도 클래스 객체들이 공유 가능.
 	static int count;
 };
 
