@@ -40,7 +40,7 @@ void DoSomething(Base* b)
 int main()
 {
 	Derived1 d1;
-	Base* base = &d1; //업 캐스팅
+	Base* base = &d1; //업 캐스팅 
 
 	Derived1* baseToD1 = static_cast<Derived1*>(base); //다운 캐스팅(강제적으로 하는 형변환 -> 위험)
 	//d1클래스의 정보이므로 j 변수가 있는데
