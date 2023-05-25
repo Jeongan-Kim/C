@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="15_pure_virtual_function_and_abstract_class.cpp">
+    <ClCompile Include="17_dynamic_casting.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
