@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0525_inheritance_exercise2.cpp">
+    <ClCompile Include="0526_container_map_exercise.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
