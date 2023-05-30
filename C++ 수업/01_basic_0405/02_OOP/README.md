@@ -25,7 +25,7 @@ C++의 접근 지정자는 객체지향의 중요한 특징인 '캡슐화'를 �
 ```cpp
 struct person
 {
-private : //struct도 접근 지정자를 쓸 수 있지만 private를 생략했을 때 class처럼 자동으로 은닉되지는 않음.
+private : //struct도 접근 지정자를 쓸 수 있지만 private를 생략했을 때 class처럼 자동으로 은닉되지는 않음. ★
 
 	string name;
 	int age;
@@ -114,7 +114,7 @@ public:
 - 원본 데이터는 변경하지 않고, 오직 새롭게 초기화되는 인스턴스 변수들에게 '복사'만 하는 것.
 
 ## 이동 생성자(Move constructor)
-- R-value로 값을 가져와서 이동시키는 것.
+- R-value로 값을 가져와서 이동시키는 것. ★
 ```cpp
 class Fraction
 {
@@ -134,7 +134,7 @@ public:
 	{}
 
 	//이동 생성자
-	Fraction(Fraction&& data) noexcept //R value reference로 가져옴. 나 자체를 가져오는 것. noexcept는 예외처리 할 수 없다고 할때 써줌
+	Fraction(Fraction&& data) noexcept //R value reference로 가져옴. 나 자체를 가져오는 것. noexcept는 예외처리 할 수 없다고 할때 써줌 ★
 	{}
 
 private:
@@ -166,7 +166,7 @@ public:
 	{
 /*		a = aData;
 		b = bData;
-		c = cData;*/ //이런 방식은 매개변수를 복사해서 넣기 때문에 속도가 느림.
+		c = cData;*/ //이런 방식은 매개변수를 복사해서 넣기 때문에 속도가 느림. ★
 	}
 
 private :
@@ -182,7 +182,7 @@ int main()
 }
 ```
 
-# 05_delegeting_constructor(위임 생성자)
+# 05_delegeting_constructor(위임 생성자) ★
 어떤 특정 멤버 변수를 다른 걸로 초기화하고 싶을 때 사용한다.
 ## 첫번째 방법
 ```cpp
@@ -193,7 +193,7 @@ public:
 		:id(id), name(name) // 이름이 같아도 괄호로 형식 구분이 되므로 괜찮음.
 	{}
 
-	//id는 0으로 두고, 이름만 계속 바꾸고 싶다면
+	//id는 0으로 두고, 이름만 계속 바꾸고 싶다면 
 	Student(const string& name) 
 		:Student(0, name) //다시 나를 불러서 이렇게 하면 됨.(위임 생성자)
 	{}
@@ -264,7 +264,7 @@ public:
 
 	~IntArray()
 	{
-		delete[] arr; //배열 동적할당 해제
+		delete[] arr; //배열 동적할당 해제(클래스 내부의 변수(동적할당된)를 해제)
 		cout << "destructor" << endl;
 	}
 
@@ -346,7 +346,7 @@ int main()
     return 0;
 }
 ```
-이렇게 하면 연산 하나하나 써야 하니 귀찮다. 이를 연쇄적 함수 표현으로 나타내면 편리하다.
+이렇게 하면 연산 하나하나 써야 하니 귀찮다. 이를 연쇄적 함수 표현으로 나타내면 편리하다. ★
 ```cpp
 class Calc
 {
@@ -378,7 +378,7 @@ int main()
 	return 0;
 }
 ```
-메서드를 통해 객체의 멤버 변수를 수정하고자 할때에는 함수 반환형에 꼭 &연산자를 붙여 줘야 한다. (ex. Calc&)
+메서드를 통해 객체의 멤버 변수를 수정하고자 할때에는 함수 반환형에 꼭 &연산자를 붙여 줘야 한다. (ex. Calc&) ★
 
 # 09_class_and_const(const 멤버 알아보기)  ★
 클래스 내부에서 멤버 함수 뒤에 붙은 const키워드는 해당 멤버 함수가 객체 내부 상태를 변경하지 않는다는 것을 나타낸다. 즉, const멤버 함수는 해당 객체의 상태를 읽을 수만 있고 변경할 수는 없다.
@@ -427,7 +427,7 @@ public:
 클래스의 모든 객체들이 공유하는 변수. 
 - 클래스의 일부분으로 메모리에 한 번 할당되며, 프로그램이 종료될 때까지 존재한다.
 - 클래스 선언 내부에서 선언하며, 일반적으로 private 멤버로 선언되어 클래스 외부에서는 접근할 수 없다. 
-- 접근할때에는 클래스 이름으로 접근할 수 있다.(객체 이름으로는 접근 불가)
+- 접근할때에는 클래스 이름으로 접근할 수 있다.(객체 이름으로는 접근 불가) ★
 ```cpp
 class Test
 {
@@ -458,8 +458,8 @@ public:
 	void Temp1() const { this->value; } //상수함수라서 오버로딩 가능
 
 	static void Temp2() { this->value; } //error. 
-    //static함수에서는 this call불가능.
-	//그래서 같은 종류로 단순히 포함되기만한 변수(static 변수)만 사용 가능.
+    //static함수에서는 this call불가능. ★
+	//그래서 같은 종류로 단순히 포함되기만한 변수(static 변수)만 사용 가능. ★
 	static void Temp2() { value2; }
 };
 
@@ -476,7 +476,7 @@ int main()
 	return 0;
 }
 ```
-## member_pointer(멤버 포인터)
+## member_pointer(멤버 포인터) ★
 객체를 만들고 사용해야 한다는 주의점이 있다.
 ```cpp
 class Test
@@ -498,7 +498,7 @@ int main()
 
 	//변수의 경우.
 	int Test::* ptr2 = &Test::test; //test의 포인터. 지금은 아직 실체가 없음.
-	t1.*ptr2 = 10; //test가 객체 t1의 변수라고 알려주는 것.
+	t1.*ptr2 = 10; //test가 객체 t1의 변수라고 알려주는 것. ★
 
 	//함수의 경우.
 	void(Test:: * ptr3)() = &Test::Temp1; //Temp1의 포인터. 아직 실체가 없음.
@@ -508,7 +508,7 @@ int main()
 }
 ```
 
-# 12_SOLID_and_singleton_pattern
+# 12_SOLID_and_singleton_pattern ★
 ## SOLID(객체지향 설계 원칙) : 지켜야할 원칙
 - 단일 책임 원책(Single Responsibility Principle) : 모든 클래스는 각각 하나의 기능만을 책임만 가져야 한다.
 
@@ -558,7 +558,7 @@ int main()
 ```
 
 
-# 13_friend_class
+# 13_friend_class ★
 friend도 객체 지향을 부수는 것으로 여겨지기도 한다. 많이 쓰면 좋지 않다.
 또한, 상속이 되지 않는다.
 
@@ -666,7 +666,7 @@ int main()
 }
 ```
 
-# 14_anonymous_object(익명 객체)
+# 14_anonymous_object(익명 객체) ★
 한번 쓰고 안쓸 것 같은 것은 굳이 실체화하지 않고 익명객체화 하자.
 ```cpp
 class A
