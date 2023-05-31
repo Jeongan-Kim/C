@@ -14,6 +14,7 @@
 #include <map>
 #include <string>
 #include <stack>
+#include <Queue>
 
 using namespace std;
 
@@ -237,6 +238,44 @@ void AdapterContainer()
 		cout << stack.top() << endl; //가장 마지막에 들어간 값을 출력/ 3 출력
 		stack.pop(); //가장 마지막에 들어간 값 삭제/ 3 삭제
 		cout << stack.top() << endl << endl; //2 출력
+	}
+
+
+	/*
+		Queue
+		-FIFO(first in first out), 선형으로 저장됨
+	*/
+	{
+		cout << "Queue" << endl;
+
+		queue<int> queue;
+
+		queue.push(1);
+		queue.push(2);
+		queue.push(3);
+
+		cout << queue.front() << ' ' << queue.back() << endl; //앞 뒤로 접근해서 찍어줄 수 있음
+		queue.pop(); //삭제
+		cout << queue.front() << ' ' << queue.back() << endl;
+	}
+
+	/*
+		Priority Queue(우선 순위 큐. 정렬이 되어있음. 높은 것부터 순서대로 내림차순으로)
+		맨 앞 원소에 가장 먼저가 아니라 가장 값이 큰 원소가 위치하게 됨.
+	*/
+	{
+		cout << "Priority Queue" << endl;
+
+		priority_queue<int> priorityQue;
+
+		for (const int n : {1, 8, 5, 6, 3, 4, 0, 9, 7, 2})
+			priorityQue.push(n);
+
+		for (int i = 0; i < 10; i++)
+		{
+			cout << priorityQue.top() << endl;
+			priorityQue.pop();//가장 먼저 들어간 원소가 아니라 정렬되었으므로 가장 윗 원소(큰 원소)가 사라짐
+		}
 	}
 }
 /*
