@@ -29,8 +29,8 @@ void AdapterContainer();
 
 int main()
 {
-	//SequenceContainer();
-	//AssociativeContainer();
+	SequenceContainer();
+	AssociativeContainer();
 
 	////stoi => string to int (문자열을 정수로 바꿀 때 사용)
 	//string str1 = "123";
@@ -192,13 +192,13 @@ void AssociativeContainer()
 			cout << ele.first << ' ' << ele.second << endl;
 		cout << endl;
 
-		multimap.empty(); //비워져 있는지 확인
-		multimap.clear(); //모두 비우기
-		{
-			char answer;
-			cin >> answer;
-			multimap.find(answer)->second; //answer은 키, second은 값
-		}
+		//multimap.empty(); //비워져 있는지 확인
+		//multimap.clear(); //모두 비우기
+		//{
+		//	char answer;
+		//	cin >> answer;
+		//	multimap.find(answer)->second; //answer은 키, second은 값
+		//}
 
 		for (const auto& ele : multimap)
 			cout << ele.first << ' ' << ele.second << endl;
