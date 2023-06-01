@@ -1,4 +1,4 @@
-01_Inheritance(상속의 기본)
+# 01_Inheritance(상속의 기본)
 ```cpp
 class Mother
 {
@@ -147,7 +147,7 @@ public:
 };
 ```
 
-# 04_Inheritance_and_casting
+# 04_Inheritance_and_casting ★
 ## up casting vs down casting
 객체 지향 프로그래밍에서 상속관계에 있는 클래스 간의 형 변환을 의미한다.
 ### up casting
@@ -169,7 +169,7 @@ int main() {
     Child childObj;
     Parent* parentPtr = &childObj;  // 업 캐스팅
     parentPtr->ParentMethod();     // 부모 클래스의 메서드 호출 가능
-    // parentPtr->ChildMethod();    // 컴파일 오류: 부모 클래스 포인터로 자식 클래스의 메서드에 직접 접근 불가
+    // parentPtr->ChildMethod();    // 컴파일 오류: 부모 클래스 포인터로 자식 클래스의 메서드에 직접 접근 불가 ★
     return 0;
 }
 ```
@@ -177,8 +177,8 @@ int main() {
 ### down casting
 - 부모 클래스의 포인터나 참조를 자식 클래스의 포인터나 참조로 형 변환하는 것.
 - 부모 클래스의 포인털르 통해 자식 클래스의 멤버에 접근하고 사용할 수 있음.
-- 명시적 형 변환을 해 줘야 함.
-- 컴파일 타임에는 오류 확인 불가하니 실행 시간에 유효성을 확인해야 함.
+- 명시적 형 변환을 해 줘야 함. ★
+- 컴파일 타임에는 오류 확인 불가하니 실행 시간에 유효성을 확인해야 함. ★
 ```cpp
 class Parent {
 public:
@@ -192,7 +192,7 @@ public:
 
 int main() {
     Parent parentObj;
-    Child* childPtr = dynamic_cast<Child*>(&parentObj);  // 다운 캐스팅
+    Child* childPtr = dynamic_cast<Child*>(&parentObj);  // 다운 캐스팅 ★
     if (childPtr != nullptr) 
     {
         childPtr->ChildMethod();  // 자식 클래스의 메서드 호출 가능
@@ -286,7 +286,7 @@ public:
 	void Networking() {}
 };
 
-class USBNetworkDevice :public USBDevice, public NetworkDevice
+class USBNetworkDevice :public USBDevice, public NetworkDevice //★
 {
 public:
 	USBNetworkDevice(int usbId, int netId)
@@ -355,7 +355,7 @@ int main()
 ## final
 - 더이상 이 클래스를 상속하지 않게 하는 키워드(함수에만 써서 특정 함수만 상속 불가하게 할 수도 있음)
 
-# 09_Covariant(공변성)
+# 09_Covariant(공변성) ★
 - 객체 지향 프로그래밍의 다형성 관점에서, 상속관계에 있는 클래스나 인터페이스 사이에서 타입 변환을 얘기한다.
 - 자식 클래스가 부모 클래스의 타입으로 사용될 수 있다.
 - 공변적인 관계 : 부모 클래스와 자식 클래스의 관계에서 자료형이 보존되는 경우
@@ -399,7 +399,7 @@ int main()
 	typeid : class B * __ptr64
 	*/
 
-	A& ref = b;//ref자체는 A의 것이지만 b로 초기화를 해서, 값은 B의 주소가 나오지만 타입이나 소속은 A
+	A& ref = b;//ref자체는 A의 것이지만 b로 초기화를 해서, 값은 B의 주소가 나오지만 타입이나 소속은 A ★
 	ref.Print();
 	cout << "Address : " << ref.GetThisPointer() << endl;
 	cout << "typeid : " << typeid(ref.GetThisPointer()).name() << endl;
@@ -450,13 +450,13 @@ int main()
 	for (const auto& dog : dogs)
 		dog.Speak();
 
-	//부모 클래스로 upcasting 해주기
+	//부모 클래스로 upcasting 해주기 ★
 	Animal* animals[]
 	{
 		&cats[0], &cats[1], &cats[2], &cats[3], &cats[4],
         &dogs[0], &dogs[1], &dogs[2], &dogs[3], &dogs[4]
 	};
-	for (const auto& animal : animals) //??가 출력됨. (upcasting 되면서 생기는 문제->virtual, override 키워드를 써서 바꾸면 문제 해결)
+	for (const auto& animal : animals) //??가 출력됨. (upcasting 되면서 생기는 문제->virtual, override 키워드를 써서 바꾸면 문제 해결) ★
 		animal->Speak();
 	return 0;
 }
@@ -464,7 +464,7 @@ int main()
 
 # 11_virtual_function_and_polymorphism
 가상 함수와 가상 함수 테이블에 대해 알아보자.
-- 가상함수의 주소가 같아서, 가상함수는 가상함수 테이블(멤버 함수의 주소를 오버라이딩 함수 주소로 교체 해주는 등의 일을 함)을 이용함.
+- 가상함수의 주소가 같아서, 가상함수는 가상함수 테이블(멤버 함수의 주소를 오버라이딩 함수 주소로 교체 해주는 등의 일을 함)을 이용함. ★
 ```cpp
 class A
 {
