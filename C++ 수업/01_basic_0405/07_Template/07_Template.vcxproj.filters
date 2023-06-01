@@ -15,7 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="07_Pointer_template_specialization.cpp">
+=======
+    <ClCompile Include="03_template_and_non_type_parameters.cpp">
+>>>>>>> 93e9519817cf74f632f29deb77442aefc07be62e
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

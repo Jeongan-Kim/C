@@ -5,7 +5,10 @@
 using namespace std;
 
 template<typename T, unsigned int SIZE> //템플릿 매개 변수가 다름 <어떤 타입이든 가능, 몇개를 넣을지>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93e9519817cf74f632f29deb77442aefc07be62e
 class MyArray
 {
 public:
