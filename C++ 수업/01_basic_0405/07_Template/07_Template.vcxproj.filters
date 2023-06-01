@@ -15,18 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="02_myArray.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="02_myArray.inl">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="02_myArray.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="02_class_template.cpp">
+    <ClCompile Include="03_template_and_non_type_parameters.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

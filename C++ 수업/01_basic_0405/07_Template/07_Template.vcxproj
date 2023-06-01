@@ -19,16 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="02_myArray.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="02_class_template.cpp" />
-    <ClCompile Include="02_myArray.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="02_myArray.inl">
-      <FileType>Document</FileType>
-    </ClInclude>
+    <ClCompile Include="03_template_and_non_type_parameters.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
