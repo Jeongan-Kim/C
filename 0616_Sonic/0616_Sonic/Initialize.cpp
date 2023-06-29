@@ -6,10 +6,12 @@
 
 #include "Engine/Initialize.h"
 
+#include "TempGame.h"
+
 namespace Engine
 {
-	Game* Initialize()
-	{
-
-	}
+    Game* Initialize()
+    {
+        return new TempGame;
+    }
 }
