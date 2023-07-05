@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="0704_Depth_first_search.cpp">
+    <ClCompile Include="0706_Breadth_First_Search.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
