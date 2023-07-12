@@ -17,7 +17,7 @@ public:
     Sonic* Shoot();
 
 private:
-    Engine::Rendering::Image::Component Skin;
+    Engine::Rendering::Animation::Component Skin;
 
     float const MoveSpeed = 750;
 

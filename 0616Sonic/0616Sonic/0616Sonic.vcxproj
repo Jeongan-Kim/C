@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Initialize.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sonic.cpp" />
     <ClCompile Include="SonicShooter.cpp" />
     <ClCompile Include="TempGame.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Engine\Time.h" />
     <ClInclude Include="Engine\Vector.h" />
     <ClInclude Include="QuadColider.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Sonic.h" />
     <ClInclude Include="SonicShooter.h" />
     <ClInclude Include="TempGame.h" />

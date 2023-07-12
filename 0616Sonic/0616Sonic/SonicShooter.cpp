@@ -8,9 +8,11 @@
 SonicShooter::SonicShooter(void(* const way)(Sonic* const))
     : Way{ way }
 {
-    Skin.Name = "Image/Direction";
-    Skin.Length = { 128, 128 };
+    Skin.Name = "Animation/character";
+    Skin.Length = { 36, 34  };
     Skin.Location = { -575, 250 };
+    Skin.Duration = 1.0f;
+    Skin.Repeatable = true;
 }
 
 bool SonicShooter::Update()

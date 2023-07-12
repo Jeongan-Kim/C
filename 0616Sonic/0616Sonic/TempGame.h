@@ -5,6 +5,7 @@
 #include "Engine/Game.h"
 #include "Engine/Rendering.h"
 
+class Scene;
 class Sonic;
 class SonicShooter;
 
@@ -25,7 +26,24 @@ private:
     Engine::Rendering::Text::Component SomeTime;
 
     SonicShooter* Shooter;
+    Scene* scene{ nullptr };
 
     static std::vector<Sonic*> Sonics;
+};
+
+class Object abstract
+{
+public:
+    virtual ~Object() = default;
+
+    virtual void Update() abstract;
+
+    virtual void Render()
+    {
+        Skin->Render();
+    }
+
+protected:
+    Engine::Rendering::Image::Component * Skin = nullptr;
 };
 

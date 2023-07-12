@@ -5,6 +5,7 @@
 
 #include "Sonic.h"
 #include "SonicShooter.h"
+#include "Scene.h"
 
 #include "TempGame.h"
 
@@ -18,7 +19,8 @@ CircleCollider CC;
 
 void TempGame::Start()
 {
-    Camera.Sight = { 1280, 720 };
+    scene = new Scene;
+    Camera.Sight = { 1024, 1024 };
 
     WorldTime.Font.Name = "Consolas";
     WorldTime.Font.Size = 48;
@@ -35,6 +37,9 @@ void TempGame::Start()
 
 void TempGame::Update()
 {
+    scene->Update();
+    scene->Render();
+
     std::string time = "World Time : " + std::to_string(Engine::Time::Get::Elapsed());
     std::string time2 = "Delta Time : " + std::to_string(Engine::Time::Get::Delta());
 
@@ -82,10 +87,10 @@ void TempGame::Update()
 
     Vector<2> direction{};
 
-    if (Engine::Input::Get::Key::Press(VK_LEFT))  direction[0] -= 1;
-    if (Engine::Input::Get::Key::Press(VK_RIGHT)) direction[0] += 1;
-    if (Engine::Input::Get::Key::Press(VK_UP))    direction[1] += 1;
-    if (Engine::Input::Get::Key::Press(VK_DOWN))  direction[1] -= 1;
+    if (Engine::Input::Get::Key::Press(VK_LEFT))  direction[0] -= 0.1;
+    if (Engine::Input::Get::Key::Press(VK_RIGHT)) direction[0] += 0.1;
+    if (Engine::Input::Get::Key::Press(VK_UP))    direction[1] += 0.1;
+    if (Engine::Input::Get::Key::Press(VK_DOWN))  direction[1] -= 0.1;
 
     if (direction[0] != 0 and direction[1] != 0)
         direction = Normalize(direction);
